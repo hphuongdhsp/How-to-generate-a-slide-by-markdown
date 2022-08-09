@@ -19,7 +19,7 @@ Nguyen Hoang-Phuong
 ### Content: 
 
 - Vision Transformer
-- Segforer Model:
+- Segformer Model:
   - Encoder
   - Decoder
 ---
@@ -41,7 +41,7 @@ Nguyen Hoang-Phuong
 - CNN focus on the local features
 - ViT has a higher precision rate on a large dataset
 ---
-### Segforer Model
+### Segformer Model
 
 
 ![bg left:50% 100%](https://habrastorage.org/webt/rj/pf/lv/rjpflvzjcjdeh7vxnls2lzzfl38.png "The architecture of SegFormer")
@@ -56,8 +56,8 @@ SegFormer has the following notable points:
 ### Encoder 
 #### Hierarchical Feature Representation
 
-- ViT that can only generate a single-resolution feature
-- MiT generate multi-level features (MiT have 4 Transformer layers)
+- ViT that can only generate a single-resolution feature (one head)
+- MiT generate multi-level features (MiT have 4 heads)
 
 #### Overlapped Patch Merging
 
@@ -81,6 +81,16 @@ SegFormer has the following notable points:
 ![height:12cm](./imgs/batches.png "VIT vs MiT batching ")
 
 
+
+---
+### Encoder
+- With the overlapping patches, the MiT are using a CNN layer. 
+That helps the model learn better the local feature.
+
+Is that why we call Mix Transformer? 
+
+- Multi-level features idea is one of the most important ideas for the semantic segmentation model.
+
 ---
 ### Encoder
 
@@ -93,21 +103,22 @@ SegFormer has the following notable points:
 ---
 ### Encoder
 
-![bg left:50% 60%](./imgs/Encoder.png "Transformer block")
+![bg left:50% 60%](./imgs/Mix-FFN.png "Transformer block")
 
-- ViT uses MLP
+- ViT uses MLP and GELU activation function.
 - MiT uses
 $$x_{out} = MLP(GELU(CONV_{3 \times 3}(MLP(x_{in})))) + x_{in}$$
 - MLP = nn.Linear(dim, num_classes) (or Dense Layer)
+- One again, MiT uses a CNN. 
 
-it's called Mix because it mixes information using the 3x3 conv
+
 
 ---
 ### Decoder
 
 Because Encoder is quite good, then to avoid the overfitting, we use a MLPs to fuse the features of the encoder and predict the semantic segmentation mask.
 
-![height:6cm](https://habrastorage.org/webt/jg/-d/29/jg-d29v79uubc9mh2djmt12xzvs.png "The architecture of the decoder")
+![height:9cm](https://habrastorage.org/webt/jg/-d/29/jg-d29v79uubc9mh2djmt12xzvs.png "The architecture of the decoder")
 
 --- 
 ### A MLP of decoder part
