@@ -45,16 +45,15 @@ Nguyen Hoang-Phuong
 - Using multi layer perceptron MLP to get classification head
 
 ---
-### Encoder NLP vs CV 
 
 
 ![bg left:50% 50%](./imgs/encoder_transforms.png "The architecture of Transformer NLP")
 
 ![height:12cm](./imgs/the-transformer-block-vit.png "The architecture of Encoder CV")
 
----
+<!-- ---
 ### Advantagee of Vision Transformer
- The main idea and advantage of self-attention layers is the ability to collect the global context of the given data sample, whereas CNNs are restricted to a neighboorhood of the given pixel
+ The main idea and advantage of self-attention layers is the ability to collect the global context of the given data sample, whereas CNNs are restricted to a neighboorhood of the given pixel -->
 
 ---
 ### Vision Transformer vs CNN
@@ -146,6 +145,11 @@ $$x_{out} = MLP(GELU(CONV_{3 \times 3}(MLP(x_{in})))) + x_{in}$$
 Because Encoder is quite good, then to avoid the overfitting, we use a MLPs to fuse the features of the encoder and predict the semantic segmentation mask.
 
 ![height:9cm](https://habrastorage.org/webt/jg/-d/29/jg-d29v79uubc9mh2djmt12xzvs.png "The architecture of the decoder")
+
+---
+### Decoder
+
+![height:12cm](https://habrastorage.org/webt/rj/pf/lv/rjpflvzjcjdeh7vxnls2lzzfl38.png "The architecture of SegFormer")
 
 --- 
 ### A MLP of decoder part
