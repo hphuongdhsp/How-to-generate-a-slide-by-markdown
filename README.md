@@ -41,3 +41,5 @@ foobar
 
 
 For more details, you can find in the `presentation.md` file.
+
+Enjoy!

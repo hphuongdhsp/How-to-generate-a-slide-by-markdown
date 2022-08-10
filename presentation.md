@@ -23,6 +23,16 @@ Nguyen Hoang-Phuong
   - Encoder
   - Decoder
 ---
+
+###  Transformer: From NLP to CV
+
+![bg left:50% 100%](./imgs/NLP.png "The architecture of Transformer NLP")
+
+![height:9cm](./imgs/V.png "The architecture of Transformer CV")
+<!-- With Transformer, NLP jumped the new stage.  -->
+
+---
+
 ### Vision Transformer
 
 ![bg left:50% 100%](./imgs/VIT.png "The architecture of the  Vision Transformer")
@@ -35,11 +45,28 @@ Nguyen Hoang-Phuong
 - Using multi layer perceptron MLP to get classification head
 
 ---
-### Vision Transformer
+### Encoder NLP vs CV 
 
-- ViT  understands the local and global features
-- CNN focus on the local features
-- ViT has a higher precision rate on a large dataset
+
+![bg left:50% 50%](./imgs/encoder_transforms.png "The architecture of Transformer NLP")
+
+![height:12cm](./imgs/the-transformer-block-vit.png "The architecture of Encoder CV")
+
+---
+### Advantagee of Vision Transformer
+ The main idea and advantage of self-attention layers is the ability to collect the global context of the given data sample, whereas CNNs are restricted to a neighboorhood of the given pixel
+
+---
+### Vision Transformer vs CNN
+
+| Property                   | CNNs              | Vision Transformer        |
+| -------------------------- | ----------------- | ------------------------- |
+| Shift invariance           | Mostly            | No                        |
+| Permutation invariance     | No                | Mostly (at patch level)   |
+| Spatially local processing | Yes 3x3, 5x5 conv | Partially (only patching) |
+| Parameter sharing          | Yes               | Yes                       |
+| With increased depth       | Yes               | No                        |
+
 ---
 ### Segformer Model
 
